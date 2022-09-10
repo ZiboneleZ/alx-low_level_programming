@@ -42,7 +42,6 @@ if (i < 89)
 {
 
 putchar(44);
-
 putchar(32);
 
 }

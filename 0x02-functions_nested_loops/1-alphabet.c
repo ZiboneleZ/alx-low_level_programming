@@ -18,7 +18,5 @@ _putchar(alpha);
 }
 
 _putchar('\n');
-
-return (0);
  
 }

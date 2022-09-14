@@ -2,6 +2,7 @@
 
  /**
   * print_alphabet - entry point
+  *
   *Description: The fuction prints the alphabets in lowercase
   *
   *Return: Always 0 (success)

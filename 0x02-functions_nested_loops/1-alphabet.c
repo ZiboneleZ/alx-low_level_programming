@@ -4,11 +4,11 @@
   * print_alphabet - Prints the alphabet in lowercase
   */
 
-void print_alphabet(void) 
+void print_alphabet(void)
 
 {
-char alpha;
-for (alpha = 'a'; alpha <= 'z'; alpha++)
+char alphabet;
+for (alphabet = 'a'; alpha <= 'z'; alpha++)
 {
 
 _putchar(alpha);

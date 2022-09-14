@@ -25,9 +25,7 @@ _putchar(cha2);
 
 }
 
-_putchar(cha);
-
-_putchar('\n');
+_putchar(cha'\n');
 
 }
 

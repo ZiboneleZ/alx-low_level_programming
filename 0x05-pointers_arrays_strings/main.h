@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-
+int _atoi(char *s);
 
 void reset_to_98(int *n);
 

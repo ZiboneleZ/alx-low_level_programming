@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 
+int _putchar(char);
+void print_number(int n);
 char *rot13(char *);
 char *string_toupper(char *);
 char *_strcat(char *dest, char *src);

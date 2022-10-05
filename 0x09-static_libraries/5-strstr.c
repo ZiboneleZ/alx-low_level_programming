@@ -1,67 +1,47 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * _strncmp - compares two strings within b bytes.
- * @s1: string to check
- * @s2: string to check from
- * @b: number of bytes to check
- * Return: 0 if strings are the same
- * any other number if they are different.
- */
-
-int _strncmp(char *s1, char *s2, unsigned int b)
-
-{
-
-unsigned int i;
-
-for (i = 0; i <= b && *s1 == *s2 && *s1 != '\0' && *s2 != '\0'; i++)
-
-{
-
-s1++;
-
-s2++;
-
-}
-
-return (i - b);
-
-}
-
-/**
- * _strstr - locates a substring
- * @haystack: string to look though
- * @needle: substring to find
- * Return: pointer to string with result of search
+ * _strstr - locate a substring
+ * @haystack: string
+ * @needle: string substring
+ * Return: Pointer to beginning of substring, or NULL if not found.
  */
 
 char *_strstr(char *haystack, char *needle)
 
 {
 
-unsigned int len;
+int i, j, c;
 
-  /*Get length of needle for strncmp*/
-len = 0;
+i = 0;
+c = 0;
 
-while (needle[len] != '\0')
+while (haystack[i] != '\0')
 
-len++;
+{
+j = 0;
+while (needle[j + c] != '\0' && haystack[i + c] != '\0'
 
-  /*compare substring*/
-
-while (*haystack != '\0')
+&& needle[j + c] == haystack[i + c])
 
 {
 
-if (_strncmp(haystack, needle, len) == 0)
+if (haystack[i + c] != needle[j + c])
 
-return (haystack);
-haystack++;
+break;
+
+c++;
 
 }
+if (needle[j + c] == '\0')
 
-return (0);
+return (&haystack[i]);
+
+j++;
+i++;
+
+}
+return (NULL);
 
 }

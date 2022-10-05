@@ -15,13 +15,9 @@
  */
 
 int wordcounter(char *str, int pos, char firstchar)
-
 {
-
 int i, wordcount, charcount, flag;
-
 str[0] != ' ' ? (wordcount = 1) : (wordcount = 0);
-
 for (i = 0, flag = 0; str[i]; i++)
 {
 if (str[i] == ' ' && str[i + 1] != ' ' && str[i + 1] != '\0' && flag == 0)
@@ -50,11 +46,9 @@ return (wordcount);
  */
 
 char **strtow(char *str)
-
 {
 int wc, wordlen, getfirstchar, len, i, j;
 char **p;
-
 for (len = 0; str[len]; len++)
 ;
 if (str == NULL)
@@ -67,7 +61,6 @@ if (p == NULL)
 return (NULL);
 for (i = 0, wordlen = 0; i < wc; i++)
 {
-
 /* Allocate memory for nested elements */
 wordlen = wordcounter(str, i + 1, 0);
 if (i == 0 && str[i] != ' ')
@@ -75,7 +68,6 @@ wordlen++;
 p[i] = malloc(wordlen *sizeof(char) + 1);
 if (p[i] == NULL)
 {
-
 for ( ; i >= 0; --i)
 free(p[i]);
 free(p);

@@ -3,106 +3,112 @@
 #include <stdio.h>
 
 /**
- * tchar - prints variadic argument char
- * @list: variadic list
- *
- * Return: No return
+ * p_char - prints characters
+ * @c: character to print
  */
 
-void tchar(va_list list)
-  
-{
-printf("%c", va_arg(list, int));
-}
-
-/**
- * tint - prints variadic argument int
- * @list: variadic list
- *
- * Return: No return
- */
-
-void tint(va_list list)
-
-{
-printf("%i", va_arg(list, int));
-}
-
-/**
- * tfloat - prints variadic argument float
- * @list: variadic list
- *
- * Return: No return
- */
-
-void tfloat(va_list list)
+void p_char(va_list c)
 
 {
 
-printf("%f", va_arg(list, double));
+printf("%c", va_arg(c, int));
 
 }
 
 /**
- * tstring - prints variadic argument string
- * @list: variadic list
- *
- * Return: No return
+ * p_int - prints integers
+ * @i: integer to print
  */
 
-void tstring(va_list list)
+void p_int(va_list i)
 
 {
 
-char *tmp;
-tmp = va_arg(list, char *);
+printf("%d", va_arg(i, int));
 
-if (tmp == 0)
-tmp = "(nil)";
-printf("%s", tmp);
 }
 
 /**
- * print_all - prints anything
- * @format: list of types of arguments passed to the function
- * @...: Arguments Variadic
- *
- * Return: No return
+ * p_float - prints floats
+ * @f: float to print
+ */
+
+void p_float(va_list f)
+
+{
+
+printf("%f", va_arg(f, double));
+
+}
+
+/**
+ * p_string - prints strings
+ * @s: string to print
+ */
+
+void p_string(va_list s)
+
+{
+
+char *string;
+
+string = va_arg(s, char *);
+
+if (string == NULL)
+
+string = "(nil)";
+
+printf("%s", string);
+
+}
+
+/**
+ * print_all - prints any argument passed into it
+ * @format: formats symbols in order
  */
 
 void print_all(const char * const format, ...)
-  
+
 {
-ftype fa[] = {
-{"c", tchar},
-{"i", tint},
-{"f", tfloat},
-{"s", tstring}
+
+unsigned int i, j;
+
+char *separator;
+
+va_list argp;
+
+v_types valid_types[] = {
+
+{"c", p_char},
+
+{"i", p_int},
+
+{"f", p_float},
+
+{"s", p_string}
+
 };
 
-int l1 = 0, l2 = 0;
+i = j = 0;
 
-va_list list;
+separator = "";
+va_start(argp, format);
 
-char *comma = "";
-
-va_start(list, format);
-while (format && format[l1])
+while (format && format[i])
 {
-l2 = 0;
-while (l2 < 4){
-if (format[l1] == fa[l2].tc[0])
+j = 0;
+while (j < 4)
 {
-printf("%s", comma);
-fa[l2].tf(list);
-comma = ", ";
+if (format[i] == *valid_types[j].valid)
+{
+printf("%s", separator);
+valid_types[j].f(argp);
+separator = ", ";
 }
-l2++;
+j++;
 }
-l1++;
+i++;
 }
-
 printf("\n");
-va_end(list);
 
 }

@@ -19,7 +19,7 @@ c = 0;
 
 current = h;
 
-while (current != NULL)
+while (current != 0)
 
 {
 

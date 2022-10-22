@@ -12,7 +12,7 @@ int _strlen(const char *s)
 {
 
 int i;
-  
+
 for (i = 0; s[i]; i++)
 ;
 
@@ -36,7 +36,7 @@ int i, len;
 char *content;
 
 list_t *new;
-  
+
 if (str == NULL || head == NULL)
 return (NULL);
 len = _strlen(str);

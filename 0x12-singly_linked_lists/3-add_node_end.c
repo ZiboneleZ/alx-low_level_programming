@@ -36,7 +36,6 @@ void *_strdup(const char *src)
 int len, i;
 
 char *dest;
-  
 len = _strlen(src);
 
 dest = malloc((len + 1) * sizeof(char));
@@ -85,13 +84,11 @@ return (NULL);
 
 new->str = dupstr;
 new->len = _strlen(str);
-
 new->next = NULL;
 
 if (*head == NULL)
 
 {
-
 *head = new;
 
 return (*head);
@@ -101,9 +98,7 @@ return (*head);
 current = *head;
 
 while (current->next != NULL)
-
 current = current->next;
-
 current->next = new;
 
 return (*head);

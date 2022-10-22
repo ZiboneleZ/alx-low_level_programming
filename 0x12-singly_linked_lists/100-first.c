@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
- * b - prints from init by the loader before main
+ * before_main - Print statement within this fxn before running main fxn.
  */
 
-void b(void) __attribute__ ((constructor)) before_main(void)
+void __attribute__((constructor)) before_main(void)
 
 {
 

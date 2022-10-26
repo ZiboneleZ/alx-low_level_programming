@@ -21,13 +21,9 @@ if (!head || !*head)
 return (-1);
 
 current = *head;
-
 if (index == 0)
-
 {
-
 *head = (*head)->next;
-
 free(current);
 
 return (1);
@@ -35,22 +31,15 @@ return (1);
 }
 
 for (i = 0; i < (index - 1); i++)
-
 {
-
 current = current->next;
 if (current == NULL)
-
 return (-1);
-
 }
 
 subsequent = current->next;
-
 current->next = subsequent->next;
-
 free(subsequent);
-
 return (1);
 
 }

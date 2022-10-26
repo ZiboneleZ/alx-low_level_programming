@@ -5,7 +5,6 @@
  * pop_listint - pops off the head of the list and returns its contents
  * @head: head of the list
  * Return: contents of head
-
  */
 
 int pop_listint(listint_t **head)
